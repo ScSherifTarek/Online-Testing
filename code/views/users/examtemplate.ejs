@@ -1,0 +1,24 @@
+<% //assume the i get the questions and answers during rendering this page
+
+questions.forEach(question =>{
+
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" ><%=question.body%></th>
+        </tr>
+    </thead>
+
+    answers.forEach(answer=>{
+
+        <tr>
+            <input type="hidden" value="<%= question.id %>">
+            <th scope="col" ><input type="radio" name="answer" value="<%=answer.id%>"><%=answer.body%></th>
+        </tr>        
+
+
+    });
+    
+
+});
+
+%>

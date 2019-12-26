@@ -1,0 +1,58 @@
+<%- include('./commons/nav.ejs')%>
+        <div class="container">
+
+			<!-- Header for my page-->
+			<h1>All available positions</h1>
+			<p>you can apply for the position you want</p>
+			<div id="application-table">
+				<!-- a list to show all the items of my todo -->
+				<ul>
+					<table class="table">
+						<thead>
+						  <tr>
+							<th>Position Name</th>
+							<th>Status</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>Develper</td>
+							<td><button type="button" class="btn btn-dark">Apply</button></td>
+						  </tr>      
+						  <tr class="success">
+							<td>Success</td>
+							<td><button type="button" class="btn btn-dark">Apply</button></td>
+						  </tr>
+						  <tr class="danger">
+							<td>Danger</td>
+							<td><button type="button" class="btn btn-dark">Apply</button></td>
+						  </tr>
+						  <tr class="info">
+							<td>Info</td>
+							<td><button type="button" class="btn btn-dark">Apply</button></td>
+						  </tr>
+						  <tr class="warning">
+							<td>Warning</td>
+							<td><button type="button" class="btn btn-dark">Apply</button></td>
+						  </tr>
+						  <tr class="active">
+							<td>Active</td>
+							<td><button type="button" class="btn btn-dark">Apply</button></td>
+						  </tr>
+						</tbody>
+					  </table>
+						
+				</ul>
+
+			</div>
+			  
+        </div>
+           
+		<!-- bootstap CDN -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<!-- jquery locally-->
+		<script src="/js/jquery-3.4.1.min.js"></script>
+		<!-- customized javascript -->
+		<script src="/js/users.js"></script>
+	</body>
+</html>

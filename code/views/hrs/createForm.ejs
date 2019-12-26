@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Signup</title>
+		<!-- fonts-->
+		<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+		<!-- bootstrap CDN -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!-- customized css -->
+		<link rel="stylesheet" href="/css/users.css">
+
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 mx-auto">
+				
+				<div >
+					<div class="myform form ">
+							<div class="logo mb-3">
+								<div class="col-md-12 text-center">
+									<h1 >Signup</h1>
+								</div>
+
+							</div>
+
+							<form id="hrRegistration" action="/hrs/" method="POST">
+								<div class="form-group">
+									<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>		<label for="fullName">Full name</label>
+									<input type="text" name="name" id="name"  class="form-control" placeholder="Enter full name">
+								</div>
+								<div class="form-group">
+									<label for="email">Email address</label>
+									<input type="text" name="email" id="email"  class="form-control" placeholder="Enter email">
+								</div>
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+								</div>
+								
+								<div class="col-md-12 text-center mb-3">
+									<button type="submit" id="regSubmit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
+								</div>
+
+								<div class="col-md-12 ">
+									<div class="form-group">
+										<p class="text-center"><a href="/hrs/" id="signin">Already have an account?</a></p>
+									</div>
+								</div>
+								
+
+						</div>
+				</div>
+			</div>
+		</div>   
+		<!-- bootstap CDN -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<!-- jquery locally-->
+		<script src="/js/jquery-3.4.1.min.js"></script>
+		<!-- customized javascript -->
+		<script src="/js/users.js"></script>
+	</body>
+</html>

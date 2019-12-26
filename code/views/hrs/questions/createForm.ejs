@@ -1,0 +1,50 @@
+<%- include('../commons/nav.ejs')%>
+	<div class="container">
+		
+		<h1 class="text-center mt-5 mb-0">Create new Question</h1>
+		<div class="line mt-1 mb-3"></div>
+		<form action="/hrs/questions" method="POST" onsubmit="return validateQuestionForm(this);" >
+		 	<div class="form-group">
+			    <label for="body">Question</label>
+				<%
+				if(old.length) { %>
+					<input value="<%= old[0] %>" type="text" name="body" class="form-control" id="body" placeholder="Enter question body">
+			<% } else { %>
+					<input type="text" name="body" class="form-control" id="body" placeholder="Enter question body">
+				<% } %>
+		  	</div>
+			<div class="form-group">
+				<label for="exam_type_id">Select exam type:</label>
+				<select name="exam_type_id" class="form-control" id="exam_type_id">
+					<%
+					for(var i in examTypes) {
+						if(old.length) { %>
+						<option value="<%= examTypes[i].id %>" <%= examTypes[i].id == old[1]? "selected" : "" %> ><%= examTypes[i].type %></option>
+						<%
+						} else {
+						%>
+						<option value="<%= examTypes[i].id %>"  ><%= examTypes[i].type %></option>
+						<%
+						}
+					}
+ %>
+				</select>
+			</div>
+		  	<button class="btn btn-primary mb-3" type="submit">Submit</button>
+			<%
+			if(errors) {
+				for(var i in errors) { %>
+					<div class="alert alert-danger" role="alert"><%= errors[i] %></div>
+			<% }
+			}
+			%>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/questions.js"></script>
+</body>
+</html>

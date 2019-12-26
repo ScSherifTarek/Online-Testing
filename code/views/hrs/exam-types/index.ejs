@@ -1,0 +1,42 @@
+<%- include('../commons/nav.ejs')%>
+<div class="container">
+    
+    <h1 class="text-center mt-5 mb-0">Exams</h1>
+    <div class="line mt-1 mb-3"></div>
+    <a class="btn btn-primary" href="/hrs/exam-types/create">Create new exam type</a>
+    <table class="table" id="tasks-table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Exam Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+        if(examTypes.length) {
+            examTypes.forEach(function (examType, index) {
+        %>
+                <tr>
+                    <th scope="row"><%= index + 1 %></th>
+                    <td>
+                        <a href="/hrs/exam-types/<%= examType.id %>/edit">
+                            <%= examType.type %>
+                        </a>
+                    </td>
+                </tr>
+        <%
+            });
+        } else { %>
+            <tr>
+                <td colspan="4">No results found</td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

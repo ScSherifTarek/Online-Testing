@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>questions</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<%- include('../../commons/nav.ejs')%>
+<div class="container">
+
+		<h1 class="text-center mt-5 mb-0">Choose Exams for Application[<%= application.id %>]</h1>
+		<div class="line mt-1 mb-3"></div>
+		<form action="/hrs/applications/<%= application.id %>/createExams" method="POST"  >
+			<div class="form-group">
+				<label for="exams_types">Select exam types:</label>
+				<select name="exams_types[]" class="form-control" id="exams_types" multiple>
+					<%
+					for(var i in examTypes) { %>
+						<option value="<%= examTypes[i].id %>"  ><%= examTypes[i].type %></option>
+					<% }
+ %>
+				</select>
+			</div>
+		  	<button class="btn btn-primary mb-3" type="submit">Submit</button>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/questions.js"></script>
+</body>
+</html>

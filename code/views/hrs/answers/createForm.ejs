@@ -1,0 +1,73 @@
+<%- include('../commons/nav.ejs')%>
+	<div class="container">
+		<h1 class="text-center mt-5 mb-0">Create new Answer</h1>
+		<div class="line mt-1 mb-3"></div>
+		<form action="/hrs/answers" method="POST" onsubmit="return validateAnswerForm(this);" >
+			<div class="form-group">
+				<label for="question_id">Select question:</label>
+				<select name="question_id" class="form-control" id="question_id">
+					<%
+					for(var i in questions) {
+					if(old.length) { %>
+						<option value="<%= questions[i].id %>" <%= questions[i].id == old[0]? "selected" : "" %> ><%= questions[i].body %></option>
+					<%
+					} else {
+					%>
+						<option value="<%= questions[i].id %>"  ><%= questions[i].body %></option>
+					<%
+					}
+					}
+					%>
+				</select>
+			</div>
+		 	<div class="form-group">
+			    <label for="body">Answer</label>
+				<%
+				if(old.length) { %>
+					<input value="<%= old[1] %>" type="text" name="body" class="form-control" id="body" placeholder="Enter answer body">
+			<% } else { %>
+					<input type="text" name="body" class="form-control" id="body" placeholder="Enter answer body">
+				<% } %>
+		  	</div>
+			<div class="form-group">
+				<label for="is_correct">Is correct?</label>
+				<select name="is_correct" class="form-control" id="is_correct">
+					<%
+					if(old.length) {
+						if(old[2] == 1) { %>
+							<option value="1" selected>Yes</option>
+							<option value="0" >No</option>
+						<% } else { %>
+							<option value="1" >Yes</option>
+							<option value="0" selected>No</option>
+						<% }
+					%>
+
+					<%
+					} else {
+					%>
+						<option value="1" >Yes</option>
+						<option value="0" >No</option>
+					<%
+					}
+					%>
+				</select>
+			</div>
+		  	<button class="btn btn-primary mb-3" type="submit">Submit</button>
+			<%
+			if(errors) {
+				for(var i in errors) { %>
+					<div class="alert alert-danger" role="alert"><%= errors[i] %></div>
+			<% }
+			}
+			%>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/answers.js"></script>
+</body>
+</html>
